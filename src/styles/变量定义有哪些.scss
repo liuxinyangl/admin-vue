@@ -1,0 +1,236 @@
+$--font-path: '~element-ui/lib/theme-chalk/fonts' !default;
+
+$--color-primary: #409eff !default;
+
+$--color-white: #ffffff !default;
+
+$--color-primary-light-9: mix($--color-white, $--color-primary, 90%) !default;
+
+$--color-success: #52c41a !default;
+$--color-warning: #faad14 !default;
+$--color-danger: #ff4d4f !default;
+
+$--color-success-light: #b7eb8f !default;
+$--color-warning-light: #ffe58f !default;
+$--color-danger-light: #ffa39e !default;
+
+$--color-success-lighter: #f6ffed !default;
+$--color-warning-lighter: #fffbe6 !default;
+$--color-danger-lighter: #fff1f0 !default;
+
+$--color-text-primary: #303133 !default;
+
+/* Border */
+$--border-color-base: #dddddd !default;
+$--border-color-light: #e5e5e5 !default;
+$--border-color-lighter: #ededed !default;
+$--border-color-extra-light: #f4f4f4 !default;
+
+/* Background */
+$--background-color-base: #fafafa !default;
+
+/* Radio */
+$--radio-input-height: 16px !default;
+$--radio-input-width: 16px !default;
+$--radio-checked-icon-color: $--color-white !default;
+
+/* Alert */
+$--alert-title-font-size: 14px !default;
+
+/* Message */
+$--message-min-width: inherit !default;
+$--message-background-color: $--color-primary-light-9 !default;
+$--message-padding: 12px 16px !default;
+$--message-info-font-color: $--color-primary !default;
+
+/* Notification */
+$--notification-radius: 2px !default;
+
+/* Table */
+$--table-header-font-color: $--color-text-primary !default;
+$--table-header-background-color: $--background-color-base !default;
+
+/* Badge */
+$--badge-padding: 5px !default;
+$--badge-size: 16px !default;
+
+/* Card */
+$--card-padding: 17px !default;
+
+/* DatePicker */
+$--datepicker-inrange-background-color: $--color-primary-light-9 !default;
+$--datepicker-inrange-hover-background-color: $--color-primary-light-9 !default;
+
+/* Scrollbar */
+$--scrollbar-background-color: rgba(170, 170, 170, 0.5) !default;
+$--scrollbar-hover-background-color: rgba(170, 170, 170, 0.8) !default;
+
+/* Calendar */
+$--calendar-selected-background-color: $--color-primary-light-9 !default;
+
+/* Element Variables */
+@import '~element-ui/packages/theme-chalk/src/common/var.scss';
+
+/* Menu */
+$--menu-vertical-item-height: 45px !default; // item 高度
+$--menu-vertical-item-line-height: $--menu-vertical-item-height !default; // item 行高
+$--menu-vertical-item-margin: 3px !default; // item 外间距
+$--menu-sidebar-item-height: 45px !default; // 一级 item 高度
+$--menu-sidebar-item-line-height: $--menu-sidebar-item-height !default; // 一级 item 行高
+$--menu-sidebar-item-margin: 5px !default; // 一级 item 外间距
+$--menu-dark-background: #191a23 !default; // 深色主题背景
+$--menu-dark-item-color: rgba(255, 255, 255, 0.8) !default; // 深色主题文字颜色
+$--menu-dark-item-selected-color: #fff !default; // 深色主题选中文字颜色
+$--menu-popup-item-height: 40px !default; // 弹出式子菜单 item 高度
+$--menu-popup-item-line-height: 40px !default; // 弹出式子菜单 item 行高
+$--menu-popup-item-padding: 0 15px !default; // 弹出式子菜单 item 内间距
+$--menu-popup-item-margin: 0 !default; // 弹出式子菜单 item 外间距
+$--menu-popup-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2) !default; // 弹出式子菜单阴影
+$--menu-popup-dark-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2) !default; // 弹出式子菜单深色主题阴影
+
+/* 字体 */
+$--body-font-family: 'Helvetica Neue', Helvetica, 'PingFang SC',
+  'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif !default;
+
+/* Layout */
+// 最小 zIndex (页签栏[最小]->「顶栏|侧栏」[+2|+3|+1]->移动端遮罩层[+3])
+$--layout-z-index: 99 !default;
+$--layout-body-background: #f0f2f5 !default;
+$--layout-mask-bg: rgba(0, 0, 0, 0.5) !default;
+// 主体区域定宽
+$--body-limit-width: 1160px !default;
+// 关闭响应式布局后的最大宽度
+$--body-max-width: 1400px !default;
+// 暗黑模式 class
+$--dark-class: ele-admin-theme-dark !default;
+
+/* 侧栏 */
+// 侧栏宽度
+$--sidebar-width: 240px !default;
+// 侧栏折叠后宽度
+$--sidebar-collapse-width: 56px !default;
+// 侧栏亮色背景
+$--sidebar-background-light: $--color-white !default;
+// 侧栏深色背景
+$--sidebar-background-dark: $--menu-dark-background !default;
+// 侧栏亮色阴影
+$--sidebar-light-shadow: 1px 3px 3px rgba(0, 0, 0, 0.08) !default;
+// 侧栏深色阴影
+$--sidebar-dark-shadow: 0 4px 4px rgba(0, 21, 41, 0.35) !default;
+// 侧栏折叠后图标字体大小
+$--sidebar-collapse-icon-font-size: 18px !default;
+// 侧栏过渡动画
+$--sidebar-transition-anim: 0.3s cubic-bezier(0.2, 0, 0, 1) 0s !default;
+// 侧栏过渡动效
+$--sidebar-transition: width $--sidebar-transition-anim,
+  left $--sidebar-transition-anim, box-shadow $--sidebar-transition-anim !default;
+// 双侧栏一级宽度
+$--sidebar-nav-width: 80px !default;
+// 双侧栏一级内间距
+$--sidebar-nav-padding: 0 8px !default;
+// 双侧栏一级折叠后内间距
+$--sidebar-collapse-nav-padding: 0 8px !default;
+// 双侧栏一级 pop 菜单的左右 margin
+$--sidebar-nav-pop-menu-margin: 12px !default;
+// 双侧栏一级菜单字体大小
+$--sidebar-nav-font-size: 12px !default;
+// 双侧栏一级菜单图标字体大小
+$--sidebar-nav-icon-font-size: 18px !default;
+// 双侧栏一级菜单 item 内间距
+$--sidebar-nav-item-padding: 10px 0 !default;
+// 双侧栏一级折叠后菜单 item 内间距
+$--sidebar-collapse-nav-item-padding: 10px 0 !default;
+// 双侧栏一级菜单 item 标题外间距
+$--sidebar-nav-item-title-margin: 5px 0 0 0 !default;
+// 双侧栏一级菜单 item 外间距
+$--sidebar-nav-item-margin: 5px 0 0 0 !default;
+// 双侧栏一级折叠后菜单 item 外间距
+$--sidebar-collapse-nav-item-margin: 5px 0 10px 0 !default;
+// 侧栏固定时的 z-index
+$--sidebar-fixed-z-index: 3001 !default;
+// 侧栏彩色图标宽度
+$--sidebar-colorful-icon-width: 26px !default;
+// 侧栏彩色图标字体大小
+$--sidebar-colorful-icon-size: 14px !default;
+// 侧栏彩色图标颜色行高
+$--sidebar-colorful-line-height: $--sidebar-colorful-icon-width !default;
+// 侧栏彩色图标颜色
+$--sidebar-colorful-font-color: $--menu-dark-item-selected-color !default;
+// 侧栏彩色图标背景颜色
+$--sidebar-colorful-color-1: #61b2fc !default;
+$--sidebar-colorful-color-2: #7dd733 !default;
+$--sidebar-colorful-color-3: #32a2d4 !default;
+$--sidebar-colorful-color-4: #7383cf !default;
+$--sidebar-colorful-color-5: #f5686f !default;
+$--sidebar-colorful-color-6: #2bccce !default;
+$--sidebar-colorful-color-7: #7dd733 !default;
+$--sidebar-colorful-color-8: #faad14 !default;
+// 侧栏彩色图标圆点大小
+$--sidebar-colorful-dot-size: 8px !default;
+// 侧栏彩色图标圆点外间距
+$--sidebar-colorful-dot-margin: 0 10px 0 0 !default;
+
+/* 顶栏 */
+// 顶栏高度
+$--header-height: 56px !default;
+// 顶栏背景
+$--header-background: $--menu-dark-background !default;
+// 顶栏亮色背景
+$--header-light-background: $--color-white !default;
+// 顶栏亮色阴影
+$--header-light-shadow: 0 1px 4px rgba(0, 21, 41, 0.08) !default;
+// 顶栏暗色阴影
+$--header-dark-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !default;
+// 顶栏头像大小
+$--header-avatar-size: 28px !default;
+// 顶栏工具按钮 hover 背景
+$--header-tool-hover-bg: rgba(0, 0, 0, 0.025) !default;
+// 顶栏暗色工具按钮 hover 背景
+$--header-dark-tool-hover-bg: rgba(255, 255, 255, 0.05) !default;
+
+/* Logo */
+// logo 大小
+$--logo-size: 30px !default;
+// logo 文字大小
+$--logo-font-size: 20px !default;
+// logo 字体粗度
+$--logo-font-weight: 600 !default;
+// logo 亮色文字颜色
+$--logo-light-color: #222222 !default;
+// logo 暗色文字颜色
+$--logo-dark-color: #ffffff !default;
+// logo 亮色阴影
+$--logo-light-shadow: 1px 2px 3px rgba(0, 0, 0, 0.08) !default;
+// logo 暗色阴影
+$--logo-dark-shadow: 0 0px 4px rgba(0, 21, 41, 0.35) !default;
+// logo 字体
+$--logo-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+  'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !default;
+
+/* 页签栏 */
+// 页签栏高度
+$--tabs-height: 40px !default;
+// 页签栏卡片式间距
+$--tabs-card-padding: 8px !default;
+
+/* Image */
+$--content-image-filter: none !default;
+
+/* Radio */
+$--radio-inner-width: 8px !default;
+$--radio-inner-height: 8px !default;
+$--radio-inner-background-color: $--color-primary !default;
+
+/* FileList */
+$--file-list-selector-z-index: 999 !default;
+$--file-list-selector-border-color: #0078d7 !default;
+$--file-list-selector-background: rgba(0, 120, 215, 0.2) !default;
+$--file-list-item-active-border-color: $--color-primary-light-7 !default;
+$--file-list-item-active-background: $--color-primary-light-9 !default;
+$--file-list-table-sort-color: hsla(0, 0%, 60%, 0.6) !default;
+$--file-list-table-sort-active-color: $--color-primary !default;
+
+/* Table Tool */
+$--table-tool-column-width: 220px !default;
+$--table-tool-column-max-height: 480px !default;

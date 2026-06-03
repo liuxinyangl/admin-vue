@@ -1,0 +1,112 @@
+
+=== 【研究官方Demo各模块接口的返回数据格式】 ===
+=== 【详细修改可见git日志】 ===
+
+
+【=== 1、项目初始记录 ===】
+1）.env 改动环境变量，eslint、pretter等相关包全删掉,删除.eslintrc相关文件、.editorconfig文件、.prettier相关文件
+2）src/config/setting.js 改动各字段配置信息。顶栏删除国际化下拉框
+3）增加包：localforage，初始化localforage
+4）2.3.登录，2.4.用户信息及菜单，有接口需要的数据格式，另外按钮权限标识，全部放在user状态管理authorities中
+5) 参阅 9.5.部署在子路径，修改某部分代码，可部署在任意子路径
+6) 6.2.10.全局配置，Vue.use(EleAdmin => 全局配置，如表格parseData格式等等
+
+
+【=== 2、深度选择器，修改ElementUI的样式 ===】
+.workplace-table-card {  
+    :deep(.el-table tbody td) {
+      border-bottom: none; 
+    }
+}
+
+
+【=== 3、elementUI 滚动条 ===】
+<el-scrollbar
+  style="height: 326px"
+  wrapStyle="overflow-x: hidden;"
+  viewStyle="padding: 14px 10px;">
+  <el-timeline :reverse="false" class="ele-timeline ele-timeline-act">
+	<el-timeline-item
+	  v-for="(item, index) in activities"
+	  :key="index"
+	  :timestamp="item.timestamp"
+	  :type="item.type"
+	>
+	  {{ item.title }}
+	</el-timeline-item>
+  </el-timeline>
+</el-scrollbar>
+
+
+【=== 4、常用工具方法 ===】
+toDateString、assignObject(赋值不改变原字段)、toTreeData、eachTreeData、formatTreeData、uuid、random、formatNumber、deepClone、exportSheet。
+
+
+【=== 5、其他 ===】
+响应式写法：<el-col v-for="item in data" :key="item.url" v-bind="styleResponsive ? { lg: 3, md: 6, sm: 6, xs: 12 } : { span: 3 }">
+ele-pro-table实例的doRequest(cb)方法，可获取所有请求参数，其他reload、getData、setSelectedRowKeys。
+this.$messageLoading({message: '正在加载中..',background: 'rgba(0,0,0,.15)'});
+this.$loading({lock: true});
+this.$message.success('成功！');
+this.$confirm。。。
+//获取层级树中，全勾选 + 半勾选的，因为getCheckedKeys不包含半勾选的！
+const ids = this.$refs.tree.getCheckedKeys().concat(this.$refs.tree.getHalfCheckedKeys());
+
+
+【=== 6.1 增加展开按钮 index.vue ===】
+import tblContentMixin from '@/mixins/tblContentMixin.js';
+mixins: [tblContentMixin],
+
+<user-search @search="reload" @expand-change="mix_onExpandChange" :mix_showExpandBtn="mix_showExpandBtn" />
+<ele-pro-table
+	增加...
+	ref="table"
+	cache-key="systemUserTable" 
+	
+	:height="mix_tableHeight" 
+	:pageSize="20" 
+	:pageSizes="[20,50,100]">
+	<!-- 表头右侧工具栏 -->
+	<template v-slot:toolkit>
+		<span v-if="mix_showExpandBtn" class="ele-text-info ele-text-small ele-action">固定高度</span>
+		<el-switch v-if="mix_showExpandBtn" class="ele-action" v-model="mix_fixedHeight" @change="mix_reloadTable('table')" />
+		<el-divider class="ele-action" direction="vertical" />
+	</template>
+	
+// Search展开偏移-覆盖
+mix_initTableHeightOffset: 51,
+
+【=== 若没有搜索框，让展开偏移生效，则加入下列 index.vue ===】
+methods: {
+	mix_expandBtnInit(){ //会自动调用
+		this.mix_showExpandBtn = true
+		this.mix_searchExpand = true
+	},
+}
+
+
+
+
+	
+【=== 6.2 增加展开按钮 user-search.vue ===】
+import tblSearchMixin from '@/mixins/tblSearchMixin.js';
+mixins: [tblSearchMixin],
+
+//需要的列都加上v-if
+<el-col v-if="mix_searchExpand" 
+//增加展开按钮
+<el-link v-if="mix_showExpandBtn" type="primary" :underline="false" @click="mix_toggleExpand">
+  <template v-if="mix_searchExpand">
+	收起<i class="el-icon-arrow-up"></i>
+  </template>
+  <template v-else>
+	展开<i class="el-icon-arrow-down"></i>
+  </template>
+</el-link>
+
+
+
+
+
+
+

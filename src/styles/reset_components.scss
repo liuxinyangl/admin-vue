@@ -1,0 +1,61 @@
+// 这个文件是所有的 scss 变量
+@import "~ele-admin/es/style/themes/default.scss";
+
+
+/*
+* 样式覆盖
+*/
+//侧边栏logo
+.ele-admin-header .ele-admin-logo{
+	justify-content: flex-start;
+	> img {
+		width: 45px;
+		height: 45px;
+		margin-left: 10px;
+		display: block;
+	}	
+}
+//分页组件
+.ele-pro-table {
+	.el-pagination{
+		text-align: right;
+	}
+	.el-pagination.ele-pagination-circle .el-pager li, 
+	.el-pagination.ele-pagination-circle .btn-prev, 
+	.el-pagination.ele-pagination-circle .btn-next {
+		border-radius: 4px;
+	}
+}
+// 树形下拉栏-样式覆盖
+.el-tree--highlight-current .el-tree-node.is-current > .el-tree-node__content{
+	background-color: var(--color-primary);
+	color: var(--color-text-dark-primary);
+}
+// 树形下拉框-样式覆盖
+.ele-tree-select-dropdown-view .el-tree.el-tree--highlight-current .el-tree-node.is-current > .el-tree-node__content > .el-tree-node__label{
+	color: var(--color-text-dark-primary);
+}
+// 表格单行高亮-样式覆盖
+.el-table__body tr.current-row:hover > td.el-table__cell,
+.el-table__body tr.current-row > td.el-table__cell{
+	background-color: var(--color-primary-5);
+	color: var(--color-text-dark-primary);
+}
+// 弹框
+.el-dialog__body .el-input.is-disabled .el-input__inner{
+	//Disabled输入框-文本颜色
+	color: var(--color-text-secondary);
+}
+
+
+
+
+
+/*
+* 注意：所有的自定义组件的样式，都写在这里
+*/
+// .mh-component1-xxx { color: $--primary-color; }
+
+
+// .mh-component2-yyy { color: $--primary-color; }
+

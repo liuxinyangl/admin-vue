@@ -1,0 +1,82 @@
+<!-- 用户导入弹窗 -->
+<template>
+	<ele-modal width="520px" title="导入用户" :visible="visible" @update:visible="updateVisible">
+		<el-upload drag action="" class="ele-block" v-loading="loading" accept=".xls,.xlsx" :show-file-list="false" :before-upload="doUpload">
+			<i class="el-icon-upload"></i>
+			<div class="el-upload__text">将文件拖到此处, 或 <em>点击上传</em></div>
+			<template v-slot:tip>
+				<div class="el-upload__tip ele-text-center">
+					<em>只能上传xls、xlsx文件, </em>
+					<el-link download :href="url" type="primary" :underline="true" style="vertical-align: baseline">
+						&nbsp;下载模板&nbsp;<i class="el-icon-download"></i>
+					</el-link>
+				</div>
+			</template>
+		</el-upload>
+	</ele-modal>
+</template>
+
+<script>
+	import {
+		importUsers
+	} from '@/api/system/user';
+
+	export default {
+		props: {
+			// 是否打开弹窗
+			visible: Boolean
+		},
+		data() {
+			return {
+				// 导入请求状态
+				loading: false,
+				// 导入模板下载地址
+				url: 'https://cdn.eleadmin.com/20200610/用户导入模板.xlsx'
+			};
+		},
+		methods: {
+			/* 上传 */
+			doUpload(file) {
+				if (
+					![
+						'application/vnd.ms-excel',
+						'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+					].includes(file.type)
+				) {
+					this.$message.error('只能选择 excel 文件');
+					return false;
+				}
+				if (file.size / 1024 / 1024 > 10) {
+					this.$message.error('文件大小不能超过 10MB');
+					return false;
+				}
+				this.loading = true;
+				importUsers(file)
+					.then((msg) => {
+						this.loading = false;
+						this.$message.success(msg);
+						this.updateVisible(false);
+						this.$emit('done');
+					})
+					.catch((e) => {
+						this.loading = false;
+					});
+				return false;
+			},
+			/* 更新visible */
+			updateVisible(value) {
+				this.$emit('update:visible', value);
+			}
+		}
+	};
+</script>
+
+<style lang="scss" scoped>
+	.ele-block {
+
+		:deep(.el-upload),
+		:deep(.el-upload-dragger) {
+			width: 100%;
+		}
+	}
+</style>
